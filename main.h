@@ -2,7 +2,7 @@
 #define __MAIN__H__
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdlib.h>
+
 
 
 /**
@@ -29,7 +29,7 @@ int _strlen(const char *string);
 int digit_count(int n);
 void print_number(int n);
 int spy_cmp(char s1);
-char *_strcpy(char *dest, char *src);
+/*char *_strcpy(char *dest, char *src);*/
 int (*get_format(char c))(va_list *ap);
 
 
