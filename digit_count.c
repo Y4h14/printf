@@ -22,7 +22,7 @@ int digit_count(int n)
 		number = number / 10;
 		i++;
 	}
-	if (if_neg)
+	if (if_neg || i == 0)
 		return (i + 1);
 	else
 		return (i);
