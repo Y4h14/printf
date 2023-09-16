@@ -22,6 +22,9 @@ int s_hand(va_list *ap)
 {
 	char *c = (char *)va_arg(*ap, char *);
 
+	if(c == NULL)
+		c = "(null)";
+
 	write(1, c, _strlen(c));
 	return (_strlen(c));
 }
