@@ -3,25 +3,22 @@
 
 int (*get_format(char c))(va_list *ap)
 {
-    f_handler formats[] = {
-    {"d", d_hand},
-    {"c", c_hand},
-    {"s", s_hand},
-    {"%", percent_hand},
-    {"i", i_hand},
-    {NULL, NULL}
-    };
-int i = 0;
-char *ptr = &c;
+	f_handler formats[] = {
+	{"d", d_hand},
+	{"c", c_hand},
+	{"s", s_hand},
+	{"%", percent_hand},
+	{"i", i_hand},
+	{NULL, NULL}
+	};
+	int i = 0;
+	char *ptr = &c;
 
-while (i < 5)
-{
-    if(*ptr == formats[i].spec[0])
-    {
-        
-        return (formats[i].f);
-    }
-    i++;
-}
-return (NULL);
+	while (i < 5)
+	{
+		if (*ptr == formats[i].spec[0])
+			return (formats[i].f);
+	i++;
+	}
+	return (NULL);
 }
