@@ -30,17 +30,14 @@ int _printf(const char *format, ...)
 		else
 		{
 			if (!spy_cmp(format[i + 1]))
-				continue;
-
-			c = format[i + 1];
-			func = get_format(c);
-			if (func == NULL)
 			{
 				count += percent_hand();
 				continue;
 			}
-			else
-				count += func(va_ptr);
+
+			c = format[i + 1];
+			func = get_format(c);	
+			count += func(va_ptr);
 			count++;
 			i++;
 		}

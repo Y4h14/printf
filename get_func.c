@@ -1,7 +1,11 @@
 #include "main.h"
 #include <stdio.h>
-
-int (*get_format(char c))(va_list *ap)
+/**
+ * get_format - gets the right handler
+ * @c: a character
+ * Return: an int
+ */
+int (*get_format(char c))(va_list * ap)
 {
 	f_handler formats[] = {
 	{"d", d_hand},
