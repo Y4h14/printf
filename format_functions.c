@@ -53,7 +53,7 @@ int i_hand(va_list *ap)
 /**
  * d_hand - handles a decimal arguemnt
  * @ap: a va_list
- * Returns: number of digits in the number
+ * Return: number of digits in the number
  */
 int d_hand(va_list *ap)
 {
