@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <stdlib.h>
 /**
  * c_hand - handles a charecter argument
  * @ap: a va_list
@@ -22,8 +22,8 @@ int s_hand(va_list *ap)
 {
 	char *c = (char *)va_arg(*ap, char *);
 
-	write(1, c, strlen(c));
-	return (strlen(c));
+	write(1, c, _strlen(c));
+	return (_strlen(c));
 }
 
 /**

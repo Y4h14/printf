@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			c = format[i + 1];
 			func = get_format(c);
 			if (func == NULL)
-				printf("epic faliure :(");
+				exit(98);
 			else
 				count += func(va_ptr);
 			count++;
