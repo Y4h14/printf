@@ -21,3 +21,4 @@ void print_decimal(int n)
 	curr_char = n % 10 + 48;
 	write(1, &curr_char, 1);
 }
+

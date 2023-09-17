@@ -64,3 +64,4 @@ int d_hand(va_list *ap)
 	print_decimal(num);
 	return (digit_count(num));
 }
+

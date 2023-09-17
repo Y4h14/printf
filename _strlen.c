@@ -15,3 +15,4 @@ int _strlen(const char *string)
 		;
 	return (i);
 }
+

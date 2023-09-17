@@ -36,3 +36,4 @@ int percent_hand(void);
 int i_hand(va_list *ap);
 int d_hand(va_list *ap);
 #endif
+

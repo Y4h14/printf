@@ -19,3 +19,4 @@ int spy_cmp(char s1)
 	}
 	return (0);
 }
+

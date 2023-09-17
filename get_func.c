@@ -25,3 +25,4 @@ int (*get_format(char c))(va_list * ap)
 	}
 	return (NULL);
 }
+
