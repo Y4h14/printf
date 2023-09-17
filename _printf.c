@@ -27,15 +27,16 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+
+			if (format[i + 1] == 32)
+			{
+				write(1, " ", 1);
+				while (format[i + 1] == 32)
+					i++;
+			}
 			if (!spy_cmp(format[i + 1]) && format[i + 1] != 32)
 			{
 				count += percent_hand();
-				continue;
-			}
-			else if (format[i + 1] == 32)
-			{
-				count += percent_hand();
-				i++;
 				continue;
 			}
 			c = format[i + 1];
