@@ -8,9 +8,9 @@ int spy_cmp(char s1)
 {
 	int i = 0;
 
-	char str[] = "discb%";
+	char str[] = "discbuxXo%";
 
-	while (i < 6)
+	while (i < 10)
 	{
 		if (str[i] == s1)
 			return (1);
