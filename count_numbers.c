@@ -8,6 +8,8 @@ int hex_count(unsigned int n)
 {
 	unsigned int i = 0, number;
 
+	if (n == 0)
+		return (1);
 	number = n;
 	while (number)
 	{
@@ -26,6 +28,8 @@ int oct_count(unsigned int n)
 {
 	unsigned int i = 0, number;
 
+	if (n == 0)
+		return (1);
 	number = n;
 	while (number)
 	{
@@ -45,6 +49,8 @@ int uns_count(unsigned int n)
 	int i = 0;
 	unsigned int number;
 
+	if (n == 0)
+		return (1);
 	number = n;
 	while (number)
 	{
