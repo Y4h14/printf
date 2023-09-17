@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 
 			if (format[i + 1] == 32)
 			{
-				write(1, " ", 1);
 				while (format[i + 1] == 32)
 					i++;
 			}
