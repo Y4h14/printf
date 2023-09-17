@@ -10,7 +10,7 @@ int spy_cmp(char s1)
 
 	char str[] = "discb%";
 
-	while (i < 5)
+	while (i < 6)
 	{
 		if (str[i] == s1)
 			return (1);
