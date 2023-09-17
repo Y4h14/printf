@@ -1,6 +1,4 @@
 #include "main.h"
-
-
 /**
  * digit_count - prints a number using write
  * @n: the number to print

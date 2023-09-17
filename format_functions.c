@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 /**
  * c_hand - handles a charecter argument
  * @ap: a va_list
@@ -49,7 +48,7 @@ int i_hand(va_list *ap)
 {
 	int num = va_arg(*ap, int);
 
-	print_number(num);
+	print_decimal(num);
 	return (digit_count(num));
 }
 
@@ -62,6 +61,6 @@ int d_hand(va_list *ap)
 {
 	int num = va_arg(*ap, int);
 
-	print_number(num);
+	print_decimal(num);
 	return (digit_count(num));
 }

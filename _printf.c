@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 /**
  * _printf - takes the format string and replaces the supported
  * directives by its equivalent argument

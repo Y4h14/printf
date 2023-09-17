@@ -2,9 +2,6 @@
 #define __MAIN__H__
 #include <unistd.h>
 #include <stdarg.h>
-
-
-
 /**
  * format_handler -  a struct that handles the format of strings
  * @width: the width
@@ -27,13 +24,12 @@ typedef struct format_handler
 int _printf(const char *format, ...);
 int _strlen(const char *string);
 int digit_count(int n);
-void print_number(int n);
+void print_decimal(int n);
 int spy_cmp(char s1);
-/*char *_strcpy(char *dest, char *src);*/
 int (*get_format(char c))(va_list *ap);
 
-
 /*format handler funtions*/
+
 int c_hand(va_list *ap);
 int s_hand(va_list *ap);
 int percent_hand(void);
