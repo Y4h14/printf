@@ -3,10 +3,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 /**
- * format_handler -  a struct that handles the format of strings
- * @width: the width
- * @fill_char: the char used as a speacr filler
- * @pers: the amount of perssioion in floats
+ * struct format_handler -  a struct that handles the format of strings
  * @spec: the specifing char
  * @f: a callback function
  */
@@ -30,7 +27,7 @@ void print_binary(unsigned int n);
 
 int binary_count(unsigned int n);
 int spy_cmp(char s1);
-int (*get_format(char c))(va_list *ap);
+int (*get_format(char c))(va_list * ap);
 
 /*format handler funtions*/
 
