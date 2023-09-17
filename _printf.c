@@ -17,7 +17,6 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (*format == 0)
 		return (0);
-
 	va_start(arg_list, format);
 	for (i = 0; i < _strlen(format); i++)
 	{
@@ -28,16 +27,20 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (!spy_cmp(format[i + 1]))
+			if (!spy_cmp(format[i + 1]) && format[i + 1] != 32)
 			{
 				count += percent_hand();
 				continue;
 			}
-
+			else if (format[i + 1] == 32)
+			{
+				count += percent_hand();
+				i++;
+				continue;
+			}
 			c = format[i + 1];
 			func = get_format(c);
 			count += func(va_ptr);
-
 			i++;
 		}
 	}
