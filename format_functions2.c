@@ -8,7 +8,7 @@
 int b_hand(va_list *ap)
 {
 	unsigned int b = va_arg(*ap, unsigned int);
-	
+
 	print_binary(b);
 	return (binary_count(b));
 }
