@@ -25,6 +25,10 @@ int _printf(const char *format, ...);
 int _strlen(const char *string);
 int digit_count(int n);
 void print_decimal(int n);
+
+void print_binary(unsigned int n);
+
+int binary_count(unsigned int n);
 int spy_cmp(char s1);
 int (*get_format(char c))(va_list *ap);
 
@@ -35,5 +39,6 @@ int s_hand(va_list *ap);
 int percent_hand(void);
 int i_hand(va_list *ap);
 int d_hand(va_list *ap);
+int b_hand(va_list *ap);
 #endif
 

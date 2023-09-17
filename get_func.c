@@ -12,12 +12,13 @@ int (*get_format(char c))(va_list * ap)
 	{"s", s_hand},
 	{"%", percent_hand},
 	{"i", i_hand},
+	{"b", b_hand},
 	{NULL, NULL}
 	};
 	int i = 0;
 	char *ptr = &c;
 
-	while (i < 5)
+	while (i < 6)
 	{
 		if (*ptr == formats[i].spec[0])
 			return (formats[i].f);

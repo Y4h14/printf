@@ -8,7 +8,7 @@ int spy_cmp(char s1)
 {
 	int i = 0;
 
-	char str[] = "disc%";
+	char str[] = "discb%";
 
 	while (i < 5)
 	{
