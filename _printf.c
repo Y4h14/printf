@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
+	int i, count = 0, check = 0;
 	int (*func)(va_list *ap);
 	char  c;
 	va_list arg_list;
@@ -30,16 +30,17 @@ int _printf(const char *format, ...)
 
 			if (format[i + 1] == 32)
 			{
-				while (format[i + 1] == 32)
-					i++;
+				for (i = i + 1; format[i + 1] == 32; i++)
+					check = 1;
 			}
+			if (check == 1 && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+				write(1, " ", 1);
 			if (!spy_cmp(format[i + 1]) && format[i + 1] != 32)
 			{
 				count += percent_hand();
 				continue;
 			}
-			c = format[i + 1];
-			func = get_format(c);
+			func = get_format(c = format[i + 1]);
 			count += func(va_ptr);
 			i++;
 		}
