@@ -15,10 +15,10 @@ void print_decimal(int n)
 		write(1, "-", 1);
 	}
 
-	number = n / 10;
+	number = (unsigned int) n / 10;
 	if (number)
 		print_decimal(number);
-	curr_char = n % 10 + 48;
+	curr_char = (unsigned int) n % 10 + 48;
 	write(1, &curr_char, 1);
 }
 

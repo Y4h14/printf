@@ -9,9 +9,9 @@ void print_binary(unsigned int n)
 	unsigned int number;
 	char c;
 
-	number = (unsigned int) n / 2;
+	number = n / 2;
 	if (number)
-		print_binary((unsigned int)number);
+		print_binary(number);
 	c = n % 2 + 48;
 	write(1, &c, 1);
 }
