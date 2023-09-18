@@ -16,7 +16,7 @@ void print_oct(unsigned int n)
 	write(1, &c, 1);
 }
 /**
- * print_hex_small - pritns an int as small letter hex
+ * print_hex_low - pritns an int as small letter hex
  * @n: unsigned int
  * Return: nothing
  */
@@ -36,7 +36,7 @@ void print_hex_low(unsigned int n)
 }
 
 /**
- * print_hex_cap - print an int as a capital letter hex
+ * print_hex_up - print an int as a capital letter hex
  * @n: unsigned int;
  * Return: nothing
  */
