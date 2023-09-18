@@ -23,7 +23,10 @@ int s_hand(va_list *ap, char *buffer)
 	char *c = (char *)va_arg(*ap, char *);
 
 	if (c == NULL)
+	{
 		addstr_buff(buffer, "(null)");
+		return (_strlen("(null)"));
+	}
 	addstr_buff(buffer, c);
 	return (_strlen(c));
 }
