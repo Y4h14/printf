@@ -47,7 +47,7 @@ int x_hand(va_list *ap)
 {
 	unsigned int x = va_arg(*ap, unsigned int);
 
-	print_hex_small(x);
+	print_hex_low(x);
 	return (hex_count(x));
 }
 /**
@@ -59,7 +59,7 @@ int X_hand(va_list *ap)
 {
 	unsigned int X = va_arg(*ap, unsigned int);
 
-	print_hex_cap(X);
+	print_hex_up(X);
 	return (hex_count(X));
 
 }

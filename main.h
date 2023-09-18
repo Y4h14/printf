@@ -26,14 +26,14 @@ int (*get_format(char c))(va_list * ap);
 /*printing functions*/
 void print_binary(unsigned int n);
 void print_oct(unsigned int n);
-void print_hex_small(unsigned int n);
-void print_hex_cap(unsigned int n);
+void print_hex_low(unsigned int n);
+void print_hex_up(unsigned int n);
 void print_uns(unsigned int n);
 void print_decimal(int n);
 
 /*counting fucntions*/
 int binary_count(unsigned int n);
-int digit_count(int n);
+int decimal_count(int n);
 int hex_count(unsigned int n);
 int oct_count(unsigned int n);
 int uns_count(unsigned int n);
