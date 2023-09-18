@@ -10,7 +10,6 @@ int (*get_format(char c))(va_list * ap, char *buffer)
 	{"d", d_hand},
 	{"c", c_hand},
 	{"s", s_hand},
-	{"%", percent_hand},
 	{"i", i_hand},
 	{"b", b_hand},
 	{"u", u_hand},
@@ -22,7 +21,7 @@ int (*get_format(char c))(va_list * ap, char *buffer)
 	int i = 0;
 	char *ptr = &c;
 
-	while (i < 11)
+	while (i < 10)
 	{
 		if (*ptr == formats[i].spec[0])
 			return (formats[i].f);
@@ -39,9 +38,9 @@ int spy_cmp(char s1)
 {
 	int i = 0;
 
-	char str[] = "discbuxXo%";
+	char str[] = "discbuxXo";
 
-	while (i < 10)
+	while (i < 9)
 	{
 		if (str[i] == s1)
 			return (1);
@@ -78,11 +77,9 @@ void addto_buff(char *buffer, char c)
 	if (*buffer == '\0')
 	{
 		buffer[0] = c;
-		buffer[1] = 0;
 		return;
 	}
 	buffer[len] = c;
-	buffer[len + 1] = 0;
 }
 /**
  * addstr_buff - adds a string to the given buffer
@@ -103,10 +100,8 @@ void addstr_buff(char *buffer, char *src)
 			buffer[i] = src[i];
 			i++;
 		}
-		buffer[len2] = 0;
 		return;
 	}
 	for (i = 0; i < len2; i++, len++)
 		buffer[len] = src[i];
-	buffer[len] = '\0';
 }
