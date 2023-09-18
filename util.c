@@ -2,9 +2,9 @@
 /**
  * get_format - gets the right handler
  * @c: a character
- * Return: an int
+ * Return: the address of the function to execute
  */
-void (*get_format(char c))(va_list * ap, char *buffer)
+int (*get_format(char c))(va_list * ap, char *buffer)
 {
 	f_handler formats[] = {
 	{"d", d_hand},

@@ -15,13 +15,13 @@ typedef struct format_handler
 	* char fill_char;
 	*/
 	char *spec;
-	void (*f)();
+	int (*f)();
 } f_handler;
 /*general purpose functions*/
 int _printf(const char *format, ...);
 int _strlen(const char *string);
 int spy_cmp(char s1);
-void (*get_format(char c))(va_list * ap, char *buffer);
+int (*get_format(char c))(va_list * ap, char *buffer);
 
 /*printing functions*/
 void print_binary(unsigned int n, char *buffer);
@@ -44,16 +44,16 @@ void addstr_buff(char *buffer, char *src);
 void init_buffer(char *buffer);
 
 /*format handler functions*/
-void c_hand(va_list *ap, char *buffer);
-void s_hand(va_list *ap, char *buffer);
-void percent_hand(char *buffer);
-void i_hand(va_list *ap, char *buffer);
-void d_hand(va_list *ap, char *buffer);
-void b_hand(va_list *ap, char *buffer);
-void u_hand(va_list *ap, char *buffer);
-void o_hand(va_list *ap, char *buffer);
-void x_hand(va_list *ap, char *buffer);
-void X_hand(va_list *ap, char *buffer);
+int c_hand(va_list *ap, char *buffer);
+int s_hand(va_list *ap, char *buffer);
+int percent_hand(char *buffer);
+int i_hand(va_list *ap, char *buffer);
+int d_hand(va_list *ap, char *buffer);
+int b_hand(va_list *ap, char *buffer);
+int u_hand(va_list *ap, char *buffer);
+int o_hand(va_list *ap, char *buffer);
+int x_hand(va_list *ap, char *buffer);
+int X_hand(va_list *ap, char *buffer);
 
 #endif
 

@@ -7,8 +7,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
-	void (*func)(va_list *ap, char *buffer);
+	int i, check = 0;
+	int (*func)(va_list *ap, char *buffer);
 	char  c, buffer[1024];
 	va_list arg_list;
 	va_list *va_ptr = &arg_list;
@@ -40,12 +40,12 @@ int _printf(const char *format, ...)
 				continue;
 			}
 			func = get_format(c = format[i + 1]);
-			func(va_ptr, buffer);
+			check += func(va_ptr, buffer);
 			i++;
 		}
 	}
 	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
-	return (_strlen(buffer));
+	return (_strlen(buffer) + check);
 }
 
