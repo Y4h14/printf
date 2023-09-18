@@ -1,68 +1,67 @@
 #include "main.h"
-#include <float.h>
 /**
  * c_hand - handles a charecter argument
  * @ap: a va_list
- * Return: one
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int c_hand(va_list *ap)
+void c_hand(va_list *ap, char *buffer)
 {
 	char c = va_arg(*ap, int);
 
-	write(1, &c, 1);
-	return (1);
+	addto_buff(buffer, c);
 }
 
 /**
  * s_hand - handles a string argumetn
  * @ap: a va_list
- * Return: the lenght of the string
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int s_hand(va_list *ap)
+void s_hand(va_list *ap, char *buffer)
 {
 	char *c = (char *)va_arg(*ap, char *);
 
 	if (c == NULL)
-		c = "(null)";
-
-	write(1, c, _strlen(c));
-	return (_strlen(c));
+		addstr_buff(buffer, "(null)");
+	addstr_buff(buffer, c);
 }
 
 /**
  * percent_hand - handles a percent charecter
+ * @buffer: buffer to append
  * Return: nothing
  */
-int percent_hand(void)
+void percent_hand(char *buffer)
 {
+	char c = '%';
 
-	write(1, "%", 1);
-	return (1);
+	addto_buff(buffer, c);
 }
 
 /**
  * i_hand - handles an intiger argument
  * @ap: a va_list
- * Return: number of digits in the number
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int i_hand(va_list *ap)
+void i_hand(va_list *ap, char *buffer)
 {
 	int num = va_arg(*ap, int);
 
-	print_decimal(num);
-	return (decimal_count(num));
+	print_decimal(num, buffer);
 }
 
 /**
  * d_hand - handles a decimal arguemnt
  * @ap: a va_list
- * Return: number of digits in the number
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int d_hand(va_list *ap)
+void d_hand(va_list *ap, char *buffer)
 {
 	int num = va_arg(*ap, int);
 
-	print_decimal(num);
-	return (decimal_count(num));
+	print_decimal(num, buffer);
 }
 

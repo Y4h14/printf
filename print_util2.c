@@ -2,9 +2,10 @@
 /**
  * print_decimal - prints an integer using write
  * @n: the number to be printed
+ * @buffer: buffer to append
  * Return: void
  */
-void print_decimal(int n)
+void print_decimal(int n, char *buffer)
 {
 	unsigned int number;
 	char curr_char;
@@ -12,13 +13,13 @@ void print_decimal(int n)
 	if (n < 0)
 	{
 		n = -n;
-		write(1, "-", 1);
+		addto_buff(buffer, '-');
 	}
 
 	number = (unsigned int) n / 10;
 	if (number)
-		print_decimal(number);
+		print_decimal(number, buffer);
 	curr_char = (unsigned int) n % 10 + 48;
-	write(1, &curr_char, 1);
+	addto_buff(buffer, curr_char);
 }
 

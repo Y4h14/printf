@@ -4,7 +4,7 @@
  * @c: a character
  * Return: an int
  */
-int (*get_format(char c))(va_list * ap)
+void (*get_format(char c))(va_list * ap, char *buffer)
 {
 	f_handler formats[] = {
 	{"d", d_hand},
@@ -26,14 +26,14 @@ int (*get_format(char c))(va_list * ap)
 	{
 		if (*ptr == formats[i].spec[0])
 			return (formats[i].f);
-	i++;
+		i++;
 	}
 	return (NULL);
 }
 /**
- * spy_cmp - check if a charecter is special
- * @s1: a charecter
- * Return: 1 if the charecter is special
+ * spy_cmp - check if a conversion specifier is supported
+ * @s1: the character to test
+ * Return: 1 if the character is supported, 0 otherwise
  */
 int spy_cmp(char s1)
 {
@@ -57,12 +57,56 @@ int spy_cmp(char s1)
  */
 int _strlen(const char *string)
 {
-	int i;
+	int i = 0;
 
 	if (string == 0)
 		return (-1);
-	for (i = 0; *(string + i) != '\0'; i++)
+	for (i = 0; *(string + i) != 0; i++)
 		;
 	return (i);
 }
+/**
+ * addto_buff - adds a character to the end of the given buffer
+ * @buffer: the buffer to append
+ * @c: the character to add to the end of the given buffer
+ * Return: (void)
+ */
+void addto_buff(char *buffer, char c)
+{
+	int len = _strlen(buffer);
 
+	if (*buffer == '\0')
+	{
+		buffer[0] = c;
+		buffer[1] = 0;
+		return;
+	}
+	buffer[len] = c;
+	buffer[len + 1] = 0;
+}
+/**
+ * addstr_buff - adds a string to the given buffer
+ * @buffer: the string to be appended
+ * @src: the string to be added to (buffer)
+ * Return: (void)
+ */
+void addstr_buff(char *buffer, char *src)
+{
+	int len = _strlen(buffer), i = 0, len2 = _strlen(src);
+
+	if (src == 0 || *src == 0)
+		return;
+	if (*buffer == '\0')
+	{
+		while (i < len2)
+		{
+			buffer[i] = src[i];
+			i++;
+		}
+		buffer[len2] = 0;
+		return;
+	}
+	for (i = 0; i < len2; i++, len++)
+		buffer[len] = src[i];
+	buffer[len] = '\0';
+}

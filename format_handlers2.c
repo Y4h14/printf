@@ -1,68 +1,64 @@
 #include "main.h"
-#include <stdarg.h>
 /**
  * b_hand - handles the b conversion specifier
  * @ap: a pointer to an argument list
+ * @buffer: buffer to append
  * Return: the number of characters outputed
  */
-int b_hand(va_list *ap)
+void b_hand(va_list *ap, char *buffer)
 {
 	unsigned int b = va_arg(*ap, unsigned int);
 
-	print_binary(b);
-	return (binary_count(b));
+	print_binary(b, buffer);
 }
 /**
  * u_hand - handled unsigned intigers
  * @ap: a pointer to an argument list
- * Return: the number of char outputed
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int u_hand(va_list *ap)
+void u_hand(va_list *ap, char *buffer)
 {
 	unsigned int u = va_arg(*ap, unsigned int);
 
-	print_uns(u);
-	return (uns_count(u));
+	print_uns(u, buffer);
 }
 
 /**
  * o_hand - handeles octal conversion
  * @ap: a pointer to an argumetn list
- * Return: number of char outputed
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int o_hand(va_list *ap)
+void o_hand(va_list *ap, char *buffer)
 {
 	unsigned int o = va_arg(*ap, unsigned int);
 
-	print_oct(o);
-	return (oct_count(o));
+	print_oct(o, buffer);
 }
 
 /**
  * x_hand - handle lower case hex values
  * @ap: a pointer to an argument list
- * Return: number of char outputed
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int x_hand(va_list *ap)
+void x_hand(va_list *ap, char *buffer)
 {
 	unsigned int x = va_arg(*ap, unsigned int);
 
-	print_hex_low(x);
-	return (hex_count(x));
+	print_hex_low(x, buffer);
 }
 /**
  * X_hand - handle upper case hex values
  * @ap : apointer to an argument list
- * Return: number of char outputed
+ * @buffer: buffer to append
+ * Return: (void)
  */
-int X_hand(va_list *ap)
+void X_hand(va_list *ap, char *buffer)
 {
 	unsigned int X = va_arg(*ap, unsigned int);
 
-	print_hex_up(X);
-	return (hex_count(X));
-
+	print_hex_up(X, buffer);
 }
-
-
 
