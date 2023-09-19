@@ -15,7 +15,8 @@ void print_rev(char *string, char *buffer)
 }
 /**
  * rot13 - move each charecter in a string
- * @str: a string of charecters from A - z
+ * @str: a string of charecters from A - Z
+ * @buffer: the printf main buffer
  * Return: a new modified encoded string
  */
 void rot13(char *str, char *buffer)
@@ -27,7 +28,8 @@ void rot13(char *str, char *buffer)
 	c = str[0];
 	if ((c < 'N' && c < 'Z') || (c < 'n' && c < 'z'))
 		c += 13;
-	else
+
+	else if ((c >= 'N' && c >= 'Z') || (c >= 'n' && c >= 'z'))
 		c -= 13;
 	addto_buff(buffer, c);
 	rot13(str + 1, buffer);
