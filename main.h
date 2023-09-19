@@ -24,7 +24,7 @@ int _strlen(const char *string);
 int spy_cmp(char s1);
 int (*get_format(char c))(va_list * ap, char *buffer);
 
-/*printing functions*/
+/*printing to the end of the buffer functions*/
 void print_binary(unsigned int n, char *buffer);
 void print_oct(unsigned int n, char *buffer);
 void print_hex_low(unsigned int n, char *buffer);
@@ -35,6 +35,7 @@ void print_string(char *string, char *buffer);
 void print_stringx(char *string, char *buffer);
 void print_hex_less(unsigned int x, char *buffer, unsigned int count);
 void print_hex_ptr(uintptr_t address, char *buffer);
+void print_rev(char *string, char *buffer);
 
 /*counting functions*/
 int binary_count(unsigned int n);
@@ -62,6 +63,7 @@ int x_hand(va_list *ap, char *buffer);
 int X_hand(va_list *ap, char *buffer);
 int S_hand(va_list *ap, char *buffer);
 int p_hand(va_list *ap, char *buffer);
+int r_hand(va_list *ap, char *buffer);
 
 #endif
 

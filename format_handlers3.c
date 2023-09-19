@@ -38,4 +38,24 @@ int p_hand(va_list *ap, char *buffer)
 	print_hex_ptr(p, buffer);
 	return (0);
 }
+/**
+ * r_hand - handles reversing the given string
+ * and adds it to the buffer
+ * @buffer: the buffer to append
+ * @ap: the argument list
+ * Return: (0)
+ */
+int r_hand(va_list *ap, char *buffer)
+{
+	char *s = va_arg(*ap, char *);
 
+	if (s == 0)
+	{
+		print_string("(nil)", buffer);
+		return (0);
+	}
+	if (*s == 0)
+		return (0);
+	print_rev(s, buffer);
+	return (0);
+}
