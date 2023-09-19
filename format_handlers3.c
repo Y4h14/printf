@@ -28,7 +28,7 @@ int p_hand(va_list *ap, char *buffer)
 {
 	uintptr_t p = (uintptr_t)va_arg(*ap, void *);
 
-	if (p == NULL)
+	if (p == (uintptr_t)NULL)
 	{
 		print_string("(nil)", buffer);
 		return (0);
