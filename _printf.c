@@ -30,6 +30,14 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
+		else if (format [i + 1] == ' ')
+		{
+			while (format[i + 1] == ' ')
+			{
+				i++;
+			}
+		
+		}
 		else
 		{
 			if (!spy_cmp(format[i + 1]))
