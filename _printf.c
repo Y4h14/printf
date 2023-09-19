@@ -45,6 +45,6 @@ int _printf(const char *format, ...)
 	}
 	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
-	return (count);
+	return (_strlen(buffer));
 }
 
