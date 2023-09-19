@@ -24,31 +24,24 @@ int _printf(const char *format, ...)
 		{
 			addto_buff(buffer, format[i]);
 		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+		{
+			count += percent_hand(buffer);
+			i++;
+			continue;
+		}
 		else
 		{
-			if (format[i + 1] == ' ')
+			if (!spy_cmp(format[i + 1]))
 			{
-				while (format[i + 1] == ' ')
-				{
-					i ++;
-				}
-			}
-		
-			if (!spy_cmp(format[i + 1]) && format[i + 1] != '%')
-			{
-				percent_hand(buffer);
-				continue;
-			}
-			else if (format[i + 1] == 32)
-			{
-				percent_hand(buffer);
-				i++;
+				count += percent_hand(buffer);
 				continue;
 			}
 			func = get_format(c = format[i + 1]);
 			count += func(va_ptr, buffer);
 			i++;
 		}
+
 	}
 	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
