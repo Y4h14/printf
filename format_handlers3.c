@@ -18,3 +18,19 @@ int S_hand(va_list *ap, char *buffer)
 	print_stringx(s, buffer);
 	return (0);
 }
+/**
+ * p_hand - handles pointers
+ * @ap: argument list
+ * @buffer: the buffer to append to
+ * Return: 0
+ */
+int p_hand(va_list *ap, char *buffer)
+{
+	uintptr_t p = (uintptr_t)va_arg(*ap, void *);
+
+	addto_buff(buffer, '0');
+	addto_buff(buffer, 'x');
+	print_hex_ptr(p, buffer);
+	return (0);
+}
+

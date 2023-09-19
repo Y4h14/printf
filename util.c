@@ -17,12 +17,13 @@ int (*get_format(char c))(va_list * ap, char *buffer)
 	{"x", x_hand},
 	{"X", X_hand},
 	{"S", S_hand},
+	{"p", p_hand},
 	{NULL, NULL}
 	};
 	int i = 0;
 	char *ptr = &c;
 
-	while (i < 11)
+	while (i < 12)
 	{
 		if (*ptr == formats[i].spec[0])
 			return (formats[i].f);
@@ -39,9 +40,9 @@ int spy_cmp(char s1)
 {
 	int i = 0;
 
-	char str[] = "discbuxXoS";
+	char str[] = "discbuxXoSp";
 
-	while (i < 10)
+	while (i < 11)
 	{
 		if (str[i] == s1)
 			return (1);

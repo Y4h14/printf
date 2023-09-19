@@ -92,3 +92,24 @@ void print_hex_less(unsigned int x, char *buffer, unsigned int count)
 		c = (x % 16) % 10 + 65;
 	addto_buff(buffer, c);
 }
+
+/**
+ * print_hex_ptr - push a pointer in the right format to the buffer
+ * @address: the address to be outputed
+ * @buffer: printf memory buffer
+ * Return: nothing
+ */
+void print_hex_ptr(uintptr_t address, char *buffer)
+{
+	uintptr_t ptr;
+	char c;
+
+	ptr = address / 16;
+	if (ptr)
+		print_hex_ptr(ptr, buffer);
+	if (address % 16 < 10)
+		c = address % 16 + 48;
+	else
+		c = (address % 16) % 10 + 97;
+	addto_buff(buffer, c);
+}

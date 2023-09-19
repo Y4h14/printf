@@ -1,6 +1,7 @@
 #ifndef __MAIN__H__
 #define __MAIN__H__
 #include <unistd.h>
+#include <stdint.h>
 #include <stdarg.h>
 /**
  * struct format_handler -  a struct that handles the format of strings
@@ -33,6 +34,7 @@ void print_decimal(int n, char *buffer);
 void print_string(char *string, char *buffer);
 void print_stringx(char *string, char *buffer);
 void print_hex_less(unsigned int x, char *buffer, unsigned int count);
+void print_hex_ptr(uintptr_t address, char *buffer);
 
 /*counting functions*/
 int binary_count(unsigned int n);
@@ -59,6 +61,7 @@ int o_hand(va_list *ap, char *buffer);
 int x_hand(va_list *ap, char *buffer);
 int X_hand(va_list *ap, char *buffer);
 int S_hand(va_list *ap, char *buffer);
+int p_hand(va_list *ap, char *buffer);
 
 #endif
 
