@@ -21,22 +21,13 @@ int _printf(const char *format, ...)
 	for (i = 0; i < _strlen(format); i++)
 	{
 		if (format[i] != '%')
-		{
 			addto_buff(buffer, format[i]);
-		}
+
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			count += percent_hand(buffer);
 			i++;
 			continue;
-		}
-		else if (format [i + 1] == ' ')
-		{
-			while (format[i + 1] == ' ')
-			{
-				i++;
-			}
-		
 		}
 		else
 		{
@@ -49,7 +40,6 @@ int _printf(const char *format, ...)
 			count += func(va_ptr, buffer);
 			i++;
 		}
-
 	}
 	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
