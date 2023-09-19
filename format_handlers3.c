@@ -28,6 +28,11 @@ int p_hand(va_list *ap, char *buffer)
 {
 	uintptr_t p = (uintptr_t)va_arg(*ap, void *);
 
+	if (p == NULL)
+	{
+		print_string("(nil)", buffer);
+		return (0);
+	}
 	addto_buff(buffer, '0');
 	addto_buff(buffer, 'x');
 	print_hex_ptr(p, buffer);
