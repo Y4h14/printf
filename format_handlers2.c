@@ -3,7 +3,7 @@
 /**
  * b_hand - handles the b conversion specifier
  * @ap: a pointer to an argument list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: the number of digits outputed
  */
 int b_hand(va_list *ap, char *buffer)
@@ -16,7 +16,7 @@ int b_hand(va_list *ap, char *buffer)
 /**
  * u_hand - handled unsigned intigers
  * @ap: a pointer to an argument list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int u_hand(va_list *ap, char *buffer)
@@ -30,7 +30,7 @@ int u_hand(va_list *ap, char *buffer)
 /**
  * o_hand - handeles octal conversion
  * @ap: a pointer to an argumetn list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int o_hand(va_list *ap, char *buffer)
@@ -44,7 +44,7 @@ int o_hand(va_list *ap, char *buffer)
 /**
  * x_hand - handle lower case hex values
  * @ap: a pointer to an argument list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int x_hand(va_list *ap, char *buffer)
@@ -57,7 +57,7 @@ int x_hand(va_list *ap, char *buffer)
 /**
  * X_hand - handle upper case hex values
  * @ap : apointer to an argument list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int X_hand(va_list *ap, char *buffer)
