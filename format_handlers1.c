@@ -8,6 +8,7 @@
 int c_hand(va_list *ap, char *buffer)
 {
 	char c = va_arg(*ap, int);
+
 	if (c == 0)
 		return (1);
 	addto_buff(buffer, c);
@@ -48,7 +49,7 @@ int percent_hand(char *buffer)
  * i_hand - handles an intiger argument
  * @ap: a va_list
  * @buffer: buffer to append
- * Return: (0) 
+ * Return: (0)
  */
 int i_hand(va_list *ap, char *buffer)
 {

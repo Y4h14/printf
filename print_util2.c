@@ -58,7 +58,7 @@ void print_stringx(char *string, char *buffer)
 		addto_buff(buffer, '\\');
 		addto_buff(buffer, 'x');
 		if (hex_count(c) == 1)
-		{	
+		{
 			addto_buff(buffer, 48);
 			print_hex_less(c, buffer, 1);
 		}
