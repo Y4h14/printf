@@ -26,10 +26,10 @@ void rot13(char *str, char *buffer)
 	if (*str == 0)
 		return;
 	c = str[0];
-	if ((c < 'N' && c < 'Z') || (c < 'n' && c < 'z'))
+	if ((c < 'N' && c >= 'A') || (c < 'n' && c >= 'a'))
 		c += 13;
 
-	else if ((c >= 'N' && c >= 'Z') || (c >= 'n' && c >= 'z'))
+	else if ((c >= 'N' && c <= 'Z') || (c >= 'n' && c <= 'z'))
 		c -= 13;
 	addto_buff(buffer, c);
 	rot13(str + 1, buffer);
