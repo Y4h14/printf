@@ -75,6 +75,7 @@ void print_stringx(char *string, char *buffer)
  * of the hex number x
  * @x: the number to print
  * @buffer: the buffer to append
+ * @count: how many characters to add to buffer
  * Return: (void)
  */
 void print_hex_less(unsigned int x, char *buffer, unsigned int count)
