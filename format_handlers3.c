@@ -4,6 +4,7 @@
  * specifier
  * @ap: the list of arguments
  * @buffer: the buffer to append
+ * Return: (void)
  */
 int S_hand(va_list *ap, char *buffer)
 {
