@@ -3,20 +3,21 @@
  * c_hand - handles a charecter argument
  * @ap: a va_list
  * @buffer: buffer to append
- * Return: (1) always
+ * Return: (0) if char is not null, (1) otherwise
  */
 int c_hand(va_list *ap, char *buffer)
 {
 	char c = va_arg(*ap, int);
-
+	if (c == 0)
+		return (1);
 	addto_buff(buffer, c);
-	return (1);
+	return (0);
 }
 /**
  * s_hand - handles a string argumetn
  * @ap: a va_list
  * @buffer: buffer to append
- * Return: the length of the string added to the buffer
+ * Return: (0)
  */
 int s_hand(va_list *ap, char *buffer)
 {
@@ -25,36 +26,36 @@ int s_hand(va_list *ap, char *buffer)
 	if (c == NULL)
 	{
 		print_string("(null)", buffer);
-		return (_strlen("(null)"));
+		return (0);
 	}
 	print_string(c, buffer);
-	return (_strlen(c));
+	return (0);
 }
 
 /**
  * percent_hand - handles a percent charecter
  * @buffer: buffer to append
- * Return: always (1)
+ * Return: (0)
  */
 int percent_hand(char *buffer)
 {
 	char c = '%';
 
 	addto_buff(buffer, c);
-	return (1);
+	return (0);
 }
 /**
  * i_hand - handles an intiger argument
  * @ap: a va_list
  * @buffer: buffer to append
- * Return: the number of digits outputed
+ * Return: (0) 
  */
 int i_hand(va_list *ap, char *buffer)
 {
 	int num = va_arg(*ap, int);
 
 	print_decimal(num, buffer);
-	return (decimal_count(num));
+	return (0);
 }
 
 /**
@@ -68,6 +69,6 @@ int d_hand(va_list *ap, char *buffer)
 	int num = va_arg(*ap, int);
 
 	print_decimal(num, buffer);
-	return (decimal_count(num));
+	return (0);
 }
 

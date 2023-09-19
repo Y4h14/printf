@@ -23,11 +23,10 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			addto_buff(buffer, format[i]);
-			count++;
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
-			count += percent_hand(buffer);
+			percent_hand(buffer);
 			i++;
 			continue;
 		}
@@ -35,7 +34,7 @@ int _printf(const char *format, ...)
 		{
 			if (!spy_cmp(format[i + 1]))
 			{
-				count += percent_hand(buffer);
+				percent_hand(buffer);
 				continue;
 			}
 			func = get_format(c = format[i + 1]);
@@ -45,6 +44,6 @@ int _printf(const char *format, ...)
 	}
 	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
-	return (_strlen(buffer));
+	return (_strlen(buffer) + count);
 }
 

@@ -13,8 +13,8 @@ int S_hand(va_list *ap, char *buffer)
 	if (s == 0)
 	{
 		print_string("(null)", buffer);
-		return (_strlen("(null)"));
+		return (0);
 	}
 	print_stringx(s, buffer);
-	return (_strlen(s));
+	return (0);
 }
