@@ -24,17 +24,25 @@ int _printf(const char *format, ...)
 		{
 			addto_buff(buffer, format[i]);
 		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-		{
-			percent_hand(buffer);
-			i++;
-			continue;
-		}
 		else
 		{
-			if (!spy_cmp(format[i + 1]))
+			if (format[i + 1] == ' ')
+			{
+				while (format[i + 1] == ' ')
+				{
+					i ++;
+				}
+			}
+		
+			if (!spy_cmp(format[i + 1]) && format[i + 1] != '%')
 			{
 				percent_hand(buffer);
+				continue;
+			}
+			else if (format[i + 1] == 32)
+			{
+				percent_hand(buffer);
+				i++;
 				continue;
 			}
 			func = get_format(c = format[i + 1]);
