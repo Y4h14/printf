@@ -2,7 +2,7 @@
 /**
  * c_hand - handles a charecter argument
  * @ap: a va_list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0) if char is not null, (1) otherwise
  */
 int c_hand(va_list *ap, char *buffer)
@@ -17,7 +17,7 @@ int c_hand(va_list *ap, char *buffer)
 /**
  * s_hand - handles a string argumetn
  * @ap: a va_list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int s_hand(va_list *ap, char *buffer)
@@ -35,7 +35,7 @@ int s_hand(va_list *ap, char *buffer)
 
 /**
  * percent_hand - handles a percent charecter
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int percent_hand(char *buffer)
@@ -48,7 +48,7 @@ int percent_hand(char *buffer)
 /**
  * i_hand - handles an intiger argument
  * @ap: a va_list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: (0)
  */
 int i_hand(va_list *ap, char *buffer)
@@ -62,7 +62,7 @@ int i_hand(va_list *ap, char *buffer)
 /**
  * d_hand - handles a decimal arguemnt
  * @ap: a va_list
- * @buffer: buffer to append
+ * @buffer: buffer to append values to
  * Return: the number of digits outputed
  */
 int d_hand(va_list *ap, char *buffer)
