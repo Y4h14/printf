@@ -61,7 +61,7 @@ int _strlen(const char *string)
 	int i = 0;
 
 	if (*string == 0)
-		return (-1);
+		return (0);
 	for (i = 0; *(string + i) != 0; i++)
 		;
 	return (i);
@@ -76,7 +76,7 @@ void addto_buff(char *buffer, char c)
 {
 	int len = _strlen(buffer);
 
-	if (len < 0)
+	if (len == 0)
 	{
 		buffer[0] = c;
 		buffer[1] = 0;
