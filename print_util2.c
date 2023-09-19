@@ -57,13 +57,13 @@ void print_stringx(char *string, char *buffer)
 	{
 		addto_buff(buffer, '\\');
 		addto_buff(buffer, 'x');
-		if (hex_count(c) >= 2)
-			print_hex_less((unsigned int) c, buffer, 0);
-		else
-		{
+		if (hex_count(c) == 1)
+		{	
 			addto_buff(buffer, 48);
-			print_hex_up((unsigned int) c, buffer);
+			print_hex_less(c, buffer, 1);
 		}
+		else
+			print_hex_less(c, buffer, 0);
 	}
 	else
 		addto_buff(buffer, *(string + i));
@@ -84,11 +84,11 @@ void print_hex_less(unsigned int x, char *buffer, unsigned int count)
 	char c;
 
 	number = x / 16;
-	if (number && count < 2)
+	if (number && count < 1)
 		print_hex_less(number, buffer, count + 1);
 	if (x % 16 < 10)
 		c = x % 16 + 48;
 	else
-		c = (x % 16) % 10 + 97;
+		c = (x % 16) % 10 + 65;
 	addto_buff(buffer, c);
 }
