@@ -59,3 +59,24 @@ int r_hand(va_list *ap, char *buffer)
 	print_rev(s, buffer);
 	return (0);
 }
+/**
+ * R_hand - handels the R flag for rod13
+ * @ap : argument list
+ * @buffer: the buffer to append
+ * Return: 0
+ */
+int R_hand(va_list *ap, char *buffer)
+{
+	char *s = va_arg(*ap, char *);
+
+	if (s == 0)
+	{
+		print_string("(nil)", buffer);
+		return (0);
+	}
+	if (*s == 0)
+		return (0);
+	rot13(s, buffer);
+	return (0);
+}
+

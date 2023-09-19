@@ -36,6 +36,7 @@ void print_stringx(char *string, char *buffer);
 void print_hex_less(unsigned int x, char *buffer, unsigned int count);
 void print_hex_ptr(uintptr_t address, char *buffer);
 void print_rev(char *string, char *buffer);
+void rot13(char *str, char *buffer);
 
 /*counting functions*/
 int binary_count(unsigned int n);
@@ -64,6 +65,6 @@ int X_hand(va_list *ap, char *buffer);
 int S_hand(va_list *ap, char *buffer);
 int p_hand(va_list *ap, char *buffer);
 int r_hand(va_list *ap, char *buffer);
-
+int R_hand(va_list *ap, char *buffer);
 #endif
 
