@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	int i, count = 0;
 	int (*func)(va_list *ap, char *buffer);
-	char  c, buffer[1024];
+	char  c, buffer[1024] = "\0";
 	va_list arg_list;
 	va_list *va_ptr = &arg_list;
 
@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 	if (*format == 0)
 		return (0);
 	va_start(arg_list, format);
-	init_buffer(buffer);
 	for (i = 0; i < _strlen(format); i++)
 	{
 		if (format[i] != '%')

@@ -24,10 +24,10 @@ int s_hand(va_list *ap, char *buffer)
 
 	if (c == NULL)
 	{
-		addstr_buff(buffer, "(null)");
+		print_string("(null)", buffer);
 		return (_strlen("(null)"));
 	}
-	addstr_buff(buffer, c);
+	print_string(c, buffer);
 	return (_strlen(c));
 }
 

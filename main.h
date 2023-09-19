@@ -30,6 +30,9 @@ void print_hex_low(unsigned int n, char *buffer);
 void print_hex_up(unsigned int n, char *buffer);
 void print_uns(unsigned int n, char *buffer);
 void print_decimal(int n, char *buffer);
+void print_string(char *string, char *buffer);
+void print_stringx(char *string, char *buffer);
+void print_hex_less(unsigned int x, char *buffer, unsigned int count);
 
 /*counting functions*/
 int binary_count(unsigned int n);
@@ -42,6 +45,7 @@ int uns_count(unsigned int n);
 void addto_buff(char *buffer, char c);
 void addstr_buff(char *buffer, char *src);
 void init_buffer(char *buffer);
+void addtostr_up(char c);
 
 /*format handler functions*/
 int c_hand(va_list *ap, char *buffer);
@@ -54,6 +58,7 @@ int u_hand(va_list *ap, char *buffer);
 int o_hand(va_list *ap, char *buffer);
 int x_hand(va_list *ap, char *buffer);
 int X_hand(va_list *ap, char *buffer);
+int S_hand(va_list *ap, char *buffer);
 
 #endif
 

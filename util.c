@@ -16,12 +16,13 @@ int (*get_format(char c))(va_list * ap, char *buffer)
 	{"o", o_hand},
 	{"x", x_hand},
 	{"X", X_hand},
+	{"S", S_hand},
 	{NULL, NULL}
 	};
 	int i = 0;
 	char *ptr = &c;
 
-	while (i < 10)
+	while (i < 11)
 	{
 		if (*ptr == formats[i].spec[0])
 			return (formats[i].f);
@@ -38,9 +39,9 @@ int spy_cmp(char s1)
 {
 	int i = 0;
 
-	char str[] = "discbuxXo";
+	char str[] = "discbuxXoS";
 
-	while (i < 9)
+	while (i < 10)
 	{
 		if (str[i] == s1)
 			return (1);
@@ -58,7 +59,7 @@ int _strlen(const char *string)
 {
 	int i = 0;
 
-	if (string == 0)
+	if (*string == 0)
 		return (-1);
 	for (i = 0; *(string + i) != 0; i++)
 		;
@@ -74,12 +75,14 @@ void addto_buff(char *buffer, char c)
 {
 	int len = _strlen(buffer);
 
-	if (*buffer == '\0')
+	if (len < 0)
 	{
 		buffer[0] = c;
+		buffer[1] = 0;
 		return;
 	}
 	buffer[len] = c;
+	buffer[len + 1] = 0;
 }
 /**
  * addstr_buff - adds a string to the given buffer
@@ -100,8 +103,10 @@ void addstr_buff(char *buffer, char *src)
 			buffer[i] = src[i];
 			i++;
 		}
+		buffer[i] = 0;
 		return;
 	}
 	for (i = 0; i < len2; i++, len++)
 		buffer[len] = src[i];
+	buffer[i] = 0;
 }

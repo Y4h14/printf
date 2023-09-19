@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 /**
  * b_hand - handles the b conversion specifier
  * @ap: a pointer to an argument list
