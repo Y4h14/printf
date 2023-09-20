@@ -22,8 +22,8 @@ typedef struct format_handler
 int _printf(const char *format, ...);
 int _strlen(const char *string);
 int spy_cmp(char s1);
-int (*get_format(char c))(va_list * ap, char *buffer);
-
+int (*get_format(char c))(va_list * ap, char *buffer, char *format);
+char spy_spec(char *format);
 
 /*printing to the end of the buffer functions*/
 void print_binary(unsigned int n, char *buffer);
@@ -39,6 +39,12 @@ void print_hex_ptr(uintptr_t address, char *buffer);
 void print_rev(char *string, char *buffer);
 void rot13(char *str, char *buffer);
 
+/*Flag handling functions*/
+int get_flagd(char *format, char *buffer, int sign);
+int get_flagx(char *format, char *buffer);
+int get_flagX(char *format, char *buffer);
+int get_flago(char *format, char *buffer);
+
 /*counting functions*/
 int binary_count(unsigned int n);
 int decimal_count(int n);
@@ -53,19 +59,19 @@ void init_buffer(char *buffer);
 void addtostr_up(char c);
 
 /*format handler functions*/
-int c_hand(va_list *ap, char *buffer);
-int s_hand(va_list *ap, char *buffer);
+int c_hand(va_list *ap, char *buffer, char *format);
+int s_hand(va_list *ap, char *buffer, char *format);
 int percent_hand(char *buffer);
-int i_hand(va_list *ap, char *buffer);
-int d_hand(va_list *ap, char *buffer);
-int b_hand(va_list *ap, char *buffer);
-int u_hand(va_list *ap, char *buffer);
-int o_hand(va_list *ap, char *buffer);
-int x_hand(va_list *ap, char *buffer);
-int X_hand(va_list *ap, char *buffer);
-int S_hand(va_list *ap, char *buffer);
-int p_hand(va_list *ap, char *buffer);
-int r_hand(va_list *ap, char *buffer);
-int R_hand(va_list *ap, char *buffer);
+int i_hand(va_list *ap, char *buffer, char *format);
+int d_hand(va_list *ap, char *buffer, char *format);
+int b_hand(va_list *ap, char *buffer, char *format);
+int u_hand(va_list *ap, char *buffer, char *format);
+int o_hand(va_list *ap, char *buffer, char *format);
+int x_hand(va_list *ap, char *buffer, char *format);
+int X_hand(va_list *ap, char *buffer, char *format);
+int S_hand(va_list *ap, char *buffer, char *format);
+int p_hand(va_list *ap, char *buffer, char *format);
+int r_hand(va_list *ap, char *buffer, char *format);
+int R_hand(va_list *ap, char *buffer, char *format);
 #endif
 

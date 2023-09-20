@@ -3,13 +3,15 @@
  * S_hand - handles strings with special characters conversion
  * specifier
  * @ap: the list of arguments
- * @buffer: the buffer to append values to
+ * @format: the format string
+ * @buffer: the buffer to append
  * Return: (void)
  */
-int S_hand(va_list *ap, char *buffer)
+int S_hand(va_list *ap, char *buffer, char *format)
 {
 	char *s = va_arg(*ap, char *);
 
+	format = format;
 	if (s == 0)
 	{
 		print_string("(null)", buffer);
@@ -21,13 +23,15 @@ int S_hand(va_list *ap, char *buffer)
 /**
  * p_hand - handles pointers
  * @ap: argument list
- * @buffer: the buffer to append values to
+ * @format: the format string
+ * @buffer: the buffer to append to
  * Return: 0
  */
-int p_hand(va_list *ap, char *buffer)
+int p_hand(va_list *ap, char *buffer, char *format)
 {
 	uintptr_t p = (uintptr_t)va_arg(*ap, void *);
 
+	format = format;
 	if (p == (uintptr_t)NULL)
 	{
 		print_string("(nil)", buffer);
@@ -42,13 +46,15 @@ int p_hand(va_list *ap, char *buffer)
  * r_hand - handles reversing the given string
  * and adds it to the buffer
  * @buffer: the buffer to append values to
+ * @format: the format string
  * @ap: the argument list
  * Return: (0)
  */
-int r_hand(va_list *ap, char *buffer)
+int r_hand(va_list *ap, char *buffer, char *format)
 {
 	char *s = va_arg(*ap, char *);
 
+	format = format;
 	if (s == 0)
 	{
 		print_string("(nil)", buffer);
@@ -63,12 +69,14 @@ int r_hand(va_list *ap, char *buffer)
  * R_hand - handels the R flag for rod13
  * @ap : argument list
  * @buffer: the buffer to append values to
+ * @format: the format string
  * Return: 0
  */
-int R_hand(va_list *ap, char *buffer)
+int R_hand(va_list *ap, char *buffer, char *format)
 {
 	char *s = va_arg(*ap, char *);
 
+	format = format;
 	if (s == 0)
 	{
 		print_string("(nil)", buffer);

@@ -4,7 +4,7 @@
  * @c: a character
  * Return: the address of the function to execute
  */
-int (*get_format(char c))(va_list * ap, char *buffer)
+int (*get_format(char c))(va_list * ap, char *buffer, char *format)
 {
 	f_handler formats[] = {
 	{"d", d_hand},

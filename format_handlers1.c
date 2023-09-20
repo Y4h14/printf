@@ -2,29 +2,33 @@
 /**
  * c_hand - handles a charecter argument
  * @ap: a va_list
- * @buffer: buffer to append values to
+ * @buffer: buffer to append
+ * @format: the format string
  * Return: (0) if char is not null, (1) otherwise
  */
-int c_hand(va_list *ap, char *buffer)
+int c_hand(va_list *ap, char *buffer, char *format)
 {
 	char c = va_arg(*ap, int);
 
+	format = format;
 	if (c == 0)
-		return (1);
+		return (0);
 	addto_buff(buffer, c);
 	return (0);
 }
 /**
  * s_hand - handles a string argumetn
  * @ap: a va_list
- * @buffer: buffer to append values to
+ * @buffer: buffer to append
+ * @format: the format string
  * Return: (0)
  */
-int s_hand(va_list *ap, char *buffer)
+int s_hand(va_list *ap, char *buffer, char *format)
 {
 	char *c = (char *)va_arg(*ap, char *);
 
 
+	format = format;
 	if (c == NULL)
 	{
 		print_string("(null)", buffer);
@@ -50,27 +54,45 @@ int percent_hand(char *buffer)
  * i_hand - handles an intiger argument
  * @ap: a va_list
  * @buffer: buffer to append values to
+ * @buffer: buffer to append
+ * @format: the format string
  * Return: (0)
  */
-int i_hand(va_list *ap, char *buffer)
+int i_hand(va_list *ap, char *buffer, char *format)
 {
-	int num = va_arg(*ap, int);
+	int num = va_arg(*ap, int), i;
 
+	if (num < 0)
+	{
+		i = get_flagd(format, buffer, -1);
+		print_decimal(num, buffer);
+		return (i);
+	}
+	i = get_flagd(format, buffer, 1);
 	print_decimal(num, buffer);
-	return (0);
+	return (i);
 }
 
 /**
  * d_hand - handles a decimal arguemnt
  * @ap: a va_list
  * @buffer: buffer to append values to
+ * @buffer: buffer to append
+ * @format: the format string
  * Return: the number of digits outputed
  */
-int d_hand(va_list *ap, char *buffer)
+int d_hand(va_list *ap, char *buffer, char *format)
 {
-	int num = va_arg(*ap, int);
+	int num = va_arg(*ap, int), i;
 
+	if (num < 0)
+	{
+		i = get_flagd(format, buffer, -1);
+		print_decimal(num, buffer);
+		return (i);
+	}
+	i = get_flagd(format, buffer, 1);
 	print_decimal(num, buffer);
-	return (0);
+	return (i);
 }
 

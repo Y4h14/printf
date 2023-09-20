@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	int i, count = 0;
-	int (*func)(va_list *ap, char *buffer);
+	int (*spec)(va_list *ap, char *buffer, char *format);
 	char  c, buffer[1024] = "\0";
 	va_list arg_list;
 	va_list *va_ptr = &arg_list;
@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 			addto_buff(buffer, format[i]);
-
 		else if (format[i] == '%' && format[i + 1] == '\0')
 			return (-1);
 		else if (format[i] == '%' && format[i + 1] == '%')
@@ -33,13 +32,14 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (!spy_cmp(format[i + 1]))
+			c = spy_spec((char *)format + i);
+			if (c == 0)
 			{
 				count += percent_hand(buffer);
 				continue;
 			}
-			func = get_format(c = format[i + 1]);
-			count += func(va_ptr, buffer);
+			spec = get_format(c);
+			i += spec(va_ptr, buffer, (char *)(format + i));
 			i++;
 		}
 	}
