@@ -23,7 +23,7 @@ int _printf(const char *format, ...);
 int _strlen(const char *string);
 int spy_cmp(char s1);
 int (*get_format(char c))(va_list * ap, char *buffer);
-char *_strncpy(char *dest, char *src, int n);
+
 
 /*printing to the end of the buffer functions*/
 void print_binary(unsigned int n, char *buffer);

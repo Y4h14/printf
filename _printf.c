@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 			i++;
 		}
 	}
-	write(1, _strncpy(buffer, buffer, _strlen(buffer)), _strlen(buffer));
+	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
 	return (_strlen(buffer) + count);
 }
