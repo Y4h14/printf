@@ -23,13 +23,20 @@ int c_hand(va_list *ap, char *buffer)
 int s_hand(va_list *ap, char *buffer)
 {
 	char *c = (char *)va_arg(*ap, char *);
+	char *str = '\0';
 
 	if (c == NULL)
 	{
 		print_string("(null)", buffer);
 		return (0);
 	}
-	print_string(c, buffer);
+	if (_strlen(c) > 1024)
+	{
+		str = _strncpy(str, c, 1024);
+		print_string(str, buffer);
+	}
+	else
+		print_string(c, buffer);
 	return (0);
 }
 
