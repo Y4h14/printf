@@ -30,9 +30,9 @@ int s_hand(va_list *ap, char *buffer)
 		print_string("(null)", buffer);
 		return (0);
 	}
-	if (_strlen(c) > 1024)
+	if (_strlen(c) > 1023)
 	{
-		str = _strncpy(str, c, 1024);
+		str = _strncpy(str, c, 1023);
 		print_string(str, buffer);
 	}
 	else
