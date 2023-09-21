@@ -87,4 +87,25 @@ int R_hand(va_list *ap, char *buffer, char *format)
 	rot13(s, buffer);
 	return (0);
 }
+/**
+ * d_long - handles long decimal conversion specifier
+ * @ap : argument list
+ * @buffer: the buffer to append values to
+ * @format: the format string
+ * Return: byte skip
+ */
+int d_long(va_list *ap, char *buffer, char *format)
+{
+	intmax_t num = va_arg(*ap, intmax_t);
+	int i;
 
+	if (num < 0)
+	{
+		i = get_flagd(format, buffer, -1);
+		print_longd(num, buffer);
+		return (i + 1);
+	}
+	i = get_flagd(format, buffer, 1);
+	print_longd(num, buffer);
+	return (i + 1);
+}

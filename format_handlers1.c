@@ -11,8 +11,6 @@ int c_hand(va_list *ap, char *buffer, char *format)
 	char c = va_arg(*ap, int);
 
 	format = format;
-	if (c == 0)
-		return (0);
 	addto_buff(buffer, c);
 	return (0);
 }

@@ -7,9 +7,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
+	int i;
 	int (*spec)(va_list *ap, char *buffer, char *format);
-	char  c, buffer[1024] = "\0";
+	char  c, len, buffer[1024] = "\0";
 	va_list arg_list;
 	va_list *va_ptr = &arg_list;
 
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			return (-1);
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
-			count += percent_hand(buffer);
+			percent_hand(buffer);
 			i++;
 			continue;
 		}
@@ -35,16 +35,19 @@ int _printf(const char *format, ...)
 			c = spy_spec((char *)format + i);
 			if (c == 0)
 			{
-				count += percent_hand(buffer);
+				percent_hand(buffer);
 				continue;
 			}
-			spec = get_format(c);
-			i += spec(va_ptr, buffer, (char *)(format + i));
-			i++;
+			len = spy_len((char *)format + i);
+			if (len)
+				spec = get_long(len, c);
+			else
+				spec = get_format(c);
+			i += spec(va_ptr, buffer, (char *)(format + i)) + 1;
 		}
 	}
 	write(1, buffer, _strlen(buffer));
 	va_end(arg_list);
-	return (_strlen(buffer) + count);
+	return (_strlen(buffer));
 }
 
