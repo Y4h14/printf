@@ -25,7 +25,6 @@ int s_hand(va_list *ap, char *buffer, char *format)
 {
 	char *c = (char *)va_arg(*ap, char *);
 
-
 	format = format;
 	if (c == NULL)
 	{
