@@ -72,14 +72,9 @@ int get_flagX(char *format, char *buffer)
 	int i = 1;
 	char c = 0;
 
-	while (format[i] != 0)
+	if (format[i] == '#')
 	{
-		if (format[i] == '#')
-		{
-			c = '#';
-			i++;
-			break;
-		}
+		c = '#';
 		i++;
 	}
 	if (c != 0)
@@ -100,16 +95,10 @@ int get_flago(char *format, char *buffer)
 	int i = 1;
 	char c = 0;
 
-	while (format[i] != 0)
+	if (format[i] == '#')
 	{
-		if (format[i] == '#')
-		{
-			c = '#';
-			i++;
-			break;
-		}
-		else
-			break;
+		c = '#';
+		i++;
 	}
 	if (c != 0)
 		addto_buff(buffer, 48);
