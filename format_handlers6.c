@@ -8,7 +8,7 @@
  */
 int d_short(va_list *ap, char *buffer, char *format)
 {
-	int16_t num = va_arg(*ap, int), i;
+	int16_t num = (int16_t) va_arg(*ap, int), i;
 
 	if (num < 0)
 	{

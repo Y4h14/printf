@@ -8,7 +8,7 @@
  */
 int i_short(va_list *ap, char *buffer, char *format)
 {
-	int16_t num = va_arg(*ap, int), i;
+	int16_t num = (int16_t) va_arg(*ap, int), i;
 
 	if (num < 0)
 	{
@@ -29,7 +29,7 @@ int i_short(va_list *ap, char *buffer, char *format)
  */
 int u_short(va_list *ap, char *buffer, char *format)
 {
-	uint16_t u = va_arg(*ap, unsigned int);
+	uint16_t u = (uint16_t) va_arg(*ap, unsigned int);
 
 	format = format;
 	print_shortu(u, buffer);
@@ -44,7 +44,7 @@ int u_short(va_list *ap, char *buffer, char *format)
  */
 int o_short(va_list *ap, char *buffer, char *format)
 {
-	uint16_t o = va_arg(*ap, unsigned int);
+	uint16_t o = (uint16_t) va_arg(*ap, unsigned int);
 	int i;
 
 	i = get_flago(format, buffer);
@@ -60,7 +60,7 @@ int o_short(va_list *ap, char *buffer, char *format)
  */
 int x_short(va_list *ap, char *buffer, char *format)
 {
-	uint16_t x = va_arg(*ap, unsigned int);
+	uint16_t x = (uint16_t)va_arg(*ap, unsigned int);
 	int i;
 
 	i = get_flagx(format, buffer);
@@ -76,7 +76,7 @@ int x_short(va_list *ap, char *buffer, char *format)
  */
 int X_short(va_list *ap, char *buffer, char *format)
 {
-	uint16_t x = va_arg(*ap, unsigned int);
+	uint16_t x = (uint16_t) va_arg(*ap, unsigned int);
 	int i;
 
 	i = get_flagx(format, buffer);
