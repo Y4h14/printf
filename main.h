@@ -28,7 +28,6 @@ int (*get_format(char c))(va_list * ap, char *buffer, char *format);
 char spy_spec(char *format);
 char spy_len(char *format);
 int str_cmp(char *s1, char *s2);
-void special_hand(char *format, char *buffer);
 
 /*printing to the end of the buffer functions*/
 void print_binary(unsigned int n, char *buffer);
