@@ -21,13 +21,13 @@ int i_short(va_list *ap, char *buffer, char *format)
 	return (i + 1);
 }
 /**
- * u_short - handles the short unsigned decimal conversion specifier
+ * uns_short - handles the short unsigned decimal conversion specifier
  * @ap: the argument list
  * @format: the format string
  * @buffer: the buffer to append
  * Return: 1
  */
-int u_short(va_list *ap, char *buffer, char *format)
+int uns_short(va_list *ap, char *buffer, char *format)
 {
 	uint16_t u = (uint16_t) va_arg(*ap, unsigned int);
 

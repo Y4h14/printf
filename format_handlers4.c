@@ -21,13 +21,13 @@ int i_long(va_list *ap, char *buffer, char *format)
 	return (i + 1);
 }
 /**
- * u_long - handles the long unsigned decimal conversion specifier
+ * uns_long - handles the long unsigned decimal conversion specifier
  * @ap: the argument list
  * @format: the format string
  * @buffer: the buffer to append
  * Return: 0
  */
-int u_long(va_list *ap, char *buffer, char *format)
+int uns_long(va_list *ap, char *buffer, char *format)
 {
 	uintmax_t u = va_arg(*ap, uintmax_t);
 

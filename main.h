@@ -85,14 +85,14 @@ int r_hand(va_list *ap, char *buffer, char *format);
 int R_hand(va_list *ap, char *buffer, char *format);
 /*long values handlers*/
 int d_long(va_list *ap, char *buffer, char *format);
-int u_long(va_list *ap, char *buffer, char *format);
+int uns_long(va_list *ap, char *buffer, char *format);
 int o_long(va_list *ap, char *buffer, char *format);
 int x_long(va_list *ap, char *buffer, char *format);
 int X_long(va_list *ap, char *buffer, char *format);
 int i_long(va_list *ap, char *buffer, char *format);
 /*short values handlers*/
 int d_short(va_list *ap, char *buffer, char *format);
-int u_short(va_list *ap, char *buffer, char *format);
+int uns_short(va_list *ap, char *buffer, char *format);
 int o_short(va_list *ap, char *buffer, char *format);
 int x_short(va_list *ap, char *buffer, char *format);
 int X_short(va_list *ap, char *buffer, char *format);
