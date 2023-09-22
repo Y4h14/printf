@@ -85,3 +85,14 @@ int str_cmp(char *s1, char *s2)
 			return (0);
 	return (1);
 }
+/**
+ * percent_case - handles the case of a percent sign
+ * @i: the index of the percent sign
+ * @buffer: the buffer to print to
+ * Return: (void)
+*/
+void percent_case(int *i, char *buffer)
+{
+	addto_buff(buffer, '%');
+	*i += 1;
+}

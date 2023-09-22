@@ -10,8 +10,7 @@ int _printf(const char *format, ...)
 	int i;
 	int (*spec)(va_list *ap, char *buffer, char *format);
 	char  c, len, buffer[1024] = "\0";
-	va_list arg_list;
-	va_list *va_ptr = &arg_list;
+	va_list arg_list, *va_ptr = &arg_list;
 
 	if (format == NULL)
 		return (-1);
@@ -26,8 +25,7 @@ int _printf(const char *format, ...)
 			return (-1);
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
-			percent_hand(buffer);
-			i++;
+			percent_case(&i, buffer);
 			continue;
 		}
 		else
