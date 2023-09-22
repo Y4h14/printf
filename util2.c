@@ -26,10 +26,17 @@ char spy_len(char *format)
 {
 	int i = 1;
 
-	while (i < 4)
+	while (i < 4 && format[i] != 0)
 	{
-		if (format[i] == 'l' || format[i] == 'h')
-			return (*(format + i));
+		if (!spy_cmp(format[i]))
+		{
+			if (format[i] == 'l' || format[i] == 'h')
+				return (*(format + i));
+		}
+		else if (format[i] == ' ' || format[i] == '#' || format[i] == '+')
+			i++;
+		else
+			return (0);
 		i++;
 	}
 	return (0);
@@ -80,7 +87,7 @@ int str_cmp(char *s1, char *s2)
 {
 	int i;
 
-	for (i = 0; s1[i] && s2[i]; i++)
+	for (i = 0; s1[i] != 0 && s2[i] != 0; i++)
 		if (s1[i] != s2[i])
 			return (0);
 	return (1);
